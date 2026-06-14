@@ -1,0 +1,6 @@
+/* Replace EVERYTHING currently in your src/index.css with these three directives.
+  This deletes Vite's default dark background and lets our zero-friction architecture take over. 
+*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
