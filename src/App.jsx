@@ -67,7 +67,7 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
 
-// --- HOOKS ---
+// --- HOOKS --- 
 
 // 1. Intersection Observer for dynamic reveals
 const useInView = (options = { threshold: 0.1 }) => {
