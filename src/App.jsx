@@ -9,6 +9,7 @@ import {
 
 // --- NEW IMPORT FOR TOOLS MODULE ---
 import ToolsModule from './components/ToolModule';
+import CheckInModule from './components/CheckInModule';
 
 // --- FIREBASE ARCHITECTURE (LOCAL) ---
 import { auth, db } from './firebase';
