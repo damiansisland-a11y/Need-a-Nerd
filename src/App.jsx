@@ -36,6 +36,9 @@ import {
   ExternalLink,
 } from 'lucide-react';
 
+import ToolsModule from './components/ToolModule';
+import CheckInModule from './components/CheckInModule';
+
 // --- FIREBASE ARCHITECTURE (CANVAS COMPATIBLE) ---
 import { initializeApp } from 'firebase/app';
 import {
