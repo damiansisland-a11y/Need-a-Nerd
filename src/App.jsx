@@ -586,7 +586,7 @@ export default function App() {
     }
   };
 
-  const validPages = ['home', 'profile', 'standards', 'tools', 'contact'];
+  const validPages = ['home', 'profile', 'standards', 'tools', 'contact', 'check-in'];
   
   const getHashPage = useCallback(() => {
     const hash = window.location.hash.replace('#', '');
@@ -637,12 +637,21 @@ export default function App() {
       case 'home': return <HomeView navigate={navigate} isDarkMode={isDarkMode} />;
       case 'profile': return <ProfileView />;
       case 'standards': return <StandardsView />;
-      // --- THIS IS THE CRUCIAL CHANGE - Rendering the external ToolsModule ---
       case 'tools': return <ToolsModule user={user} config={config} onLogin={handleGoogleLogin} onLogout={handleLogout} />;
       case 'contact': return <ContactView />;
       default: return <HomeView navigate={navigate} isDarkMode={isDarkMode} />;
     }
   };
+
+  // --- IMMERSIVE OVERRIDE FOR BESPOKE TOOLS ---
+  // If the user navigates directly to a tool, we drop the portfolio shell so the application gets 100% of the screen.
+  if (currentPage === 'check-in') {
+    return (
+      <div className={`font-sans min-h-screen ${isDarkMode ? 'bg-slate-950 text-slate-200' : 'bg-slate-50 text-slate-900'}`}>
+        <CheckInModule user={user} db={db} />
+      </div>
+    );
+  }
 
   return (
     <div className={`font-sans transition-colors duration-500 flex flex-col min-h-screen ${isDarkMode ? 'bg-slate-950 text-slate-200' : 'bg-slate-50 text-slate-900'}`}>
