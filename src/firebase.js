@@ -6,12 +6,12 @@ import { getFirestore } from 'firebase/firestore';
 // Damian - Drop your exact Firebase project config object here once generated in the Firebase Console.
 // Keep these keys stored securely in your Google Keep 'Tech Specs' note.
 const firebaseConfig = {
-  apiKey: 'YOUR_API_KEY',
-  authDomain: 'need-a-nerd.firebaseapp.com',
-  projectId: 'need-a-nerd',
-  storageBucket: 'need-a-nerd.appspot.com',
-  messagingSenderId: 'YOUR_MESSAGING_ID',
-  appId: 'YOUR_APP_ID',
+  apiKey: "AIzaSyDy_QVEtqVCRngMAMTaOn4z8sa1zG90ZiU",
+  authDomain: "need-a-nerd-aa736.firebaseapp.com",
+  projectId: "need-a-nerd-aa736",
+  storageBucket: "need-a-nerd-aa736.firebasestorage.app",
+  messagingSenderId: "347483137809",
+  appId: "1:347483137809:web:aa0523b0cfc6e7096cceb0"
 };
 
 // Initialize the zero-friction ecosystem
