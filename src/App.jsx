@@ -487,7 +487,7 @@ const ContactView = () => (
           <p className="text-indigo-100 text-lg md:text-xl mb-12 max-w-2xl mx-auto font-medium">
             Whether you are a school principal seeking a dependable relief educator, or a parent looking to bridge the gap in your child's learning journey.
           </p>
-          <a href="mailto:damian@needanerd.edu.au" className="inline-flex items-center gap-3 px-10 py-5 rounded-full bg-white text-indigo-900 font-bold text-lg hover:bg-slate-100 hover:scale-105 transition-all shadow-xl">
+          <a href="mailto:dmasters@needanerd.info" className="inline-flex items-center gap-3 px-10 py-5 rounded-full bg-white text-indigo-900 font-bold text-lg hover:bg-slate-100 hover:scale-105 transition-all shadow-xl">
             <Mail className="w-6 h-6" />
             Contact Damian Masters
           </a>
