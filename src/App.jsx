@@ -13,7 +13,7 @@ import CheckInModule from './components/CheckInModule';
 
 // --- FIREBASE ARCHITECTURE (LOCAL) ---
 import { auth, db } from './firebase';
-import { signInWithCustomToken, signInAnonymously, onAuthStateChanged, GoogleAuthProvider, signInWithRedirect, signOut } from 'firebase/auth';
+import { signInWithCustomToken, signInAnonymously, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
 import { doc, setDoc, onSnapshot } from 'firebase/firestore';
 
 const appId = 'portfolio-engine';
@@ -571,7 +571,7 @@ export default function App() {
   const handleGoogleLogin = async () => {
     const provider = new GoogleAuthProvider();
     try {
-      await signInWithRedirect(auth, provider);
+      await signInWithPopup(auth, provider);
     } catch (err) {
       console.error("SSO Failed.", err);
     }
