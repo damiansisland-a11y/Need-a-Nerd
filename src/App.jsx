@@ -514,20 +514,25 @@ export default function App() {
   const isDarkMode = config.settings.theme === 'dark';
 
   useEffect(() => {
-    const initAuth = async () => {
-      try {
-        if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-          await signInWithCustomToken(auth, __initial_auth_token);
-        } else {
-          await signInAnonymously(auth);
+    // The smart listener: it waits for Firebase to report the true session status
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+      if (currentUser) {
+        // Firebase remembered who you are (Google or returning Anonymous)
+        setUser(currentUser);
+      } else {
+        // Only if Firebase definitively says "No session exists", we hand out the prototype badge
+        try {
+          if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+            await signInWithCustomToken(auth, __initial_auth_token);
+          } else {
+            await signInAnonymously(auth);
+          }
+        } catch (err) {
+          console.error("Auth init failed", err);
         }
-      } catch (err) {
-        console.error("Auth init failed", err);
       }
-    };
-    initAuth();
+    });
 
-    const unsubscribe = onAuthStateChanged(auth, setUser);
     return () => unsubscribe();
   }, []);
 
