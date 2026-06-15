@@ -585,9 +585,11 @@ export default function App() {
   const handleLogout = async () => {
     try {
       await signOut(auth);
-      await signInAnonymously(auth);
+      // The ultimate clean slate: force the browser to instantly refresh the application.
+      // This guarantees all local state, variables, and rosters are completely wiped from memory.
+      window.location.reload();
     } catch (err) {
-      console.error("Logout Failed", err);
+      console.error("Logout failed", err);
     }
   };
 
